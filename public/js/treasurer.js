@@ -7,7 +7,13 @@ $('#selectType').change(function () {
 })
 
 if(localStorage.getItem("user")===null) {
-    window.location.replace("login.html");
+  swal({
+    type: 'error',
+    title: 'Oops...',
+    text: 'Please Login Account',
+  }).then(() => {
+    window.location.replace("login");
+  })
 }
 
 function changeValue() {
@@ -3036,7 +3042,7 @@ function getTotal(id) {
 
 function clearSession() {
   localStorage.removeItem("user");
-  window.location.replace("login.html");
+  window.location.replace("login");
 }
 
 function addReport() {
