@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <% include ../partials/header.ejs %>
+</head>
+
+<body class="fixed-nav sticky-footer" id="page-top">
+        <% include ../partials/nav.ejs %>
+
+  <div class="content-wrapper">
+  <div class="container-fluid">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Personal')" id="defaultOpen">Personal</button>
+    <button class="tablinks" onclick="openCity(event, 'Family')">Family</button>
+    <button class="tablinks" onclick="openCity(event, 'Educational')">Educational</button>
+    <button class="tablinks" onclick="openCity(event, 'Others')">Others</button>
+  </div>
+  
+  <div id="Personal" class="tabcontent">
+      <br>
+    <div id="form-step-0" role="form" data-toggle="validator">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-8">
+                    <input class="enjoy-css" class="form-control" id="First_name" placeholder="Kizz Adle" size="20" required> 
+                    <input class="enjoy-css" class="form-control" id="Middle_name" placeholder="Cueto" size="20" required>
+                    <input class="enjoy-css" class="form-control" id="Last_name" placeholder="Robledo" size="20" required>
+                </div>                
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Nickname:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Nickname" placeholder="Kizz" required> 
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Household No.:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="enjoy-css" id="House_No" placeholder="1" size="2">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Purok No.:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="enjoy-css" id="Purok_No" placeholder="1" size="2">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Barangay:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="enjoy-css" id="Barangay" placeholder="Dalig">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="Present_Add" value="Owner" name="status"> Owner<br>
+                    <input type="radio" id="Present_Add" value="Border_Rentee" name="status"> Border/Rentee
+                </div>
+                <div class="col-md-5">
+                    Length of Stay: <input type="text" class="enjoy-css" id="Length_stay" size="20">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Complete Address:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Complete_address" placeholder="Batangas City" size="62">
+                </div>   
+                <div class="help-block with-errors"></div>
+            </div>
+            <br> 
+            <div class="row">
+                <div class="col-md-2">
+                    Provincial Address:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Provincial_address" placeholder="Batangas City" size="62">
+                </div>   
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Position<br>in the Family:
+                </div>
+                <div class="col-md-3" style="color:black">
+                    <select Name="Position" id="Position_fam">
+                    <option value="Father">Grandfather</option>
+                    <option value="Father">Grandmother</option>
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Son">Son</option>
+                    <option value="Daughter">Daughter</option>
+                    <option value="Grandson">Grandson</option>
+                    <option value="Granddaughter">Granddaughter</option>
+                    <option value="Brother_in_law">Brother-in-Law</option>
+                    <option value="Sister_in_law">Sister-in-Law</option>
+                    <option value="Son_in_law">Son-in-Law</option>
+                    <option value="Daughter_in_law">Daughter-in-Law</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Gender:
+                </div>
+                <div class="col-md-3" style="color:black">
+                    <select Name="Gender" id="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Civil Status:
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="Civil_status" name="cstatus" value="Single"> Single<br>
+                    <input type="radio" id="Civil_status" value="Married" name="cstatus"> Married
+                </div>
+                <div class="col-md-5">  
+                    Others:&nbsp;<input type="text" class="enjoy-css" id="Civil_status" size="28">
+                </div>
+            </div>
+            <br>        
+            <div class="row">
+                <div class="col-md-2">
+                    Citizenship:
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="enjoy-css" id="Citizenship" placeholder="Filipino" size="26">
+                </div>      
+            </div>  
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Date of Birth:
+                </div>
+                <div class="col-md-6" style="color:black">
+                    <input type="date" id="Date_birth">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Place of Birth:
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="enjoy-css" id="Place_birth" placeholder="Batangas City" size="62">
+                </div>      
+            </div>
+            <br>   
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-3">
+                Height(cm):&nbsp;<input type="text" class="enjoy-css" id="Height" placeholder="152" size="15">
+                </div>
+                <div class="col-md-3">
+                Weight(kg):&nbsp;<input type="text" class="enjoy-css" id="Weight" placeholder="42" size="15">
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                Contact No.
+                </div>
+                <div class="col-md-3">
+                Home:&nbsp;<input type="text" class="enjoy-css" id="Home" size="16">
+                </div>
+                <div class="col-md-3">
+                Office:&nbsp;<input type="text" class="enjoy-css" id="Office" size="16">
+                </div>
+                <div class="col-md-3">
+                Mobile:&nbsp;<input type="text" class="enjoy-css" id="Mobile" size="16">
+                </div>     
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Email Address <br> (if any):
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="enjoy-css" id="Email" placeholder="email@gmail.com" size="40">
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Voter:
+                </div>
+                <div class="col-md-2" style="color:black">
+                    <select id="Voter_status" name="Voter">
+                        <option> Yes </option>
+                        <option> No </option>
+                    </select>
+                </div>
+                <div class="col-md-6" style="color:black">
+                    Voter's ID: <input type="text" class="enjoy-css" id="Voter_id" size="25">
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>    
+        </div>
+    </div> 
+  </div>
+            
+    
+  <div id="Family" class="tabcontent">
+    <h3>Family</h3>
+    <div class="container">
+    <table id="childrenTable" class="table order-list" style="width: 100%">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Position in the Family</td>
+            <td>Birthdate</td>
+            <td>Civil Status</td>
+            <td>Occupation</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" id="Family_name1" placeholder="Kizz Adle C. Robledo" class="form-control"/></td>
+            <td><input type="text" id="Position1" placeholder="daughter" class="form-control"/></td>
+            <td><input type="date" id="Birthday1" placeholder="1999/05/10" class="form-control"/></td>
+            <td><input type="text" id="Civil_status1" placeholder="Married" class="form-control"/></td>
+            <td><input type="text" id="Occupation1" placeholder="housewife" class="form-control"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="Family_name2" class="form-control"/></td>
+            <td><input type="text" id="Position2" class="form-control"/></td>
+            <td><input type="date" id="Birthday2" class="form-control"/></td>
+            <td><input type="text" id="Civil_status2" class="form-control"/></td>
+            <td><input type="text" id="Occupation2" class="form-control"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="Family_name3" class="form-control"/></td>
+            <td><input type="text" id="Position3" class="form-control"/></td>
+            <td><input type="date" id="Birthday3" class="form-control"/></td>
+            <td><input type="text" id="Civil_status3" class="form-control"/></td>
+            <td><input type="text" id="Occupation3" class="form-control"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="Family_name4" class="form-control"/></td>
+            <td><input type="text" id="Position4" class="form-control"/></td>
+            <td><input type="date" id="Birthday4" class="form-control"/></td>
+            <td><input type="text" id="Civil_status4" class="form-control"/></td>
+            <td><input type="text" id="Occupation4" class="form-control"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="Family_name5" class="form-control"/></td>
+            <td><input type="text" id="Position5" class="form-control"/></td>
+            <td><input type="date" id="Birthday5" class="form-control"/></td>
+            <td><input type="text" id="Civil_status5" class="form-control"/></td>
+            <td><input type="text" id="Occupation5" class="form-control"/></td>
+        </tr>
+    </tbody>
+    <table>
+    </table>
+</div>
+  </div>
+
+
+  <div id="Educational" class="tabcontent">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3">
+            <h4>Level of Education</h4>
+            </div>
+            <div class="col-md-4">
+            <h4>School</h4>
+            </div>              
+            <div class="col-md-4">
+            <h4>Address</h4>
+            </div>                
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <br>
+    <div id="form-step-0" role="form" data-toggle="validator">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    Elementary:
+                </div>
+                <div class="col-md-4">
+                    <input class="enjoy-css" class="form-control" id="School_elem" placeholder="Batangas State University" size="40" required> 
+                </div>                
+                <div class="col-md-4">
+                    <input class="enjoy-css" class="form-control" id="School_elem_add" placeholder="Batangas City" size="40" required> 
+                </div>              
+                <div class="help-block with-errors"></div>
+            </div>
+    <br>
+            <div class="row">
+                <div class="col-md-3">
+                    High School:
+                </div>
+                <div class="col-md-4">
+                    <input class="enjoy-css" class="form-control" id="School_high" size="40" required> 
+                </div>                
+                <div class="col-md-4">
+                    <input class="enjoy-css" class="form-control" id="School_high_add" size="40" required> 
+                </div>              
+                <div class="help-block with-errors"></div>
+            </div>
+    <br>
+            <div class="row">
+                <div class="col-md-3">
+                    College:
+                </div>
+                <div class="col-md-4">
+                    <input class="enjoy-css" class="form-control" id="School_col" size="40" required ng-model="educational.School_col"> 
+                </div>                
+                <div class="col-md-4">
+                    <input class="enjoy-css" class="form-control" id="School_col_add" size="40" required ng-model="educational.School_col_add"> 
+                </div>              
+                <div class="help-block with-errors"></div>
+            </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div id="Others" class="tabcontent">
+    <h4>Work</h4><hr>
+        <div id="form-step-0" role="form" data-toggle="validator">
+        <div class="form-group">
+             <div class="row">
+                <div class="col-md-2">
+                    Occupation:
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="enjoy-css" id="Occupation" placeholder="Software Engineer" size="40">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Name of Company:
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="enjoy-css" id="Company_name" placeholder="Nokia Technology Center Philippines, Inc." size="62">
+                </div>      
+            </div>  
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Office Address:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Office_address" placeholder="UP Ayala Techno Hub, QC" size="62">
+                </div>   
+            </div>
+        </div>
+        </div>
+        <br>
+        <br>
+    <h4>Vehicle</h4><hr>
+        <div id="form-step-0" role="form" data-toggle="validator">
+        <div class="form-group">
+             <div class="row">
+                <div class="col-md-2">
+                    Kind:
+                </div>
+                <div class="col-md-5">
+                    <select id="Kind">
+                        <option value="Motorcycle">Motorcycle</option>
+                        <option value="Tricycle">Tricycle</option>
+                        <option value="Jeepney">Jeepney</option>
+                        <option value="Car">Car</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Model:
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="enjoy-css" id="Model" placeholder="Honda City" size="30">
+                </div>      
+            </div>  
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Color:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Color" placeholder="Silver" size="30">
+                </div>   
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Plate Number:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Plate_num" placeholder="WJZ 651" size="30">
+                </div>   
+            </div>
+            <div class="row">
+            <button class="btn btn-primary" role="button" id="addNew" style="margin-left: 85%" onclick="addCounter()">Add Resident</button>
+            </div>
+        </div>
+        </div>
+
+  </div>
+
+  </div>
+  </div>
+
+  <div class="content-wrapper">
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="clearSession()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+  </div>
+  
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7aCvIwh3q4hs1LACtScpq-QhXCcZNQ64",
+    authDomain: "barangay-dalig.firebaseapp.com",
+    databaseURL: "https://barangay-dalig.firebaseio.com",
+    projectId: "barangay-dalig",
+    storageBucket: "barangay-dalig.appspot.com",
+    messagingSenderId: "1072131148594"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/sweetalert2.min.js"></script>
+  <script src="/js/addResident.js"></script>
+</body>
+
+</html>

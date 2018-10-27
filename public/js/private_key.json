@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "barangaydrive",
+  "private_key_id": "ad415fd6e280bba6babecefb7b10a90ca16aa0ea",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDb4hpBTBUs+tkB\nh9l7+4xLPEcvDucTDIUXnK9ycQkRQHf5VcFIGtdI6KRghfP3Rvplvy7UIb7Prorw\nPSBu0RAjEBcRdAN/V1YPJ1Ihte+aRy7M8AWMtDXvQpoXo3E5/ClbkntnOaTFyWRu\nDkGr7J/P48Ch6qVgPlF/1o4zp4Kfo8FbmLhKN4W8CHQO6c3mt6ko4JRUwXUFhWuL\nOFHXmJ41a90/kNxrgTJSchou8GUCGYSXx4a/U+hcKC2vYAKlRxqQWIGweEJZ0yk4\nrYdTL5nDPNhYd68k1TTaOU+rAiVlCTURMiI5N65HHv1F4lWu8DZ3sPDcGqBSXpqS\nn5KqGme5AgMBAAECggEAOSJOGitv0Sk5G+m1vD6HnMED6hlgN5XoO1NuTzlJ1t6+\njd4Xg+ndiMdSdvY3h0g9JhUAUQSXtRUwau4nMERIgiPbKqDPi9YguX1JHRNON/NJ\nGN1BQ+dLoGjY601/zUZVZMLyJ8dVpkMHQoWX0NmCSR1v32K+J/zpZmNUvd1H1rzV\n3mNH2bgwreWZsh9S02JY3GqKxpjUloqoLVpI4z724Unjy02uvrZNtwVvrp8W9W4I\nTsMz8OWRJ1PR9N8C1gPelXJK77TQLXu/+/MUvTTUkxHf+oFgqWNHSQOVu7SPz+49\nHG0MB7dSLUmmqKfjr0eiiRhj4z5EQkPMnzSa41UfxQKBgQDxxheTVsVzAA/BWxkK\nLqaR+Xi/ICzRp8cHeNUPrYlCpGeB7LBrR7xDW4/0btMXXK6BES9/ATTQhJirmU6T\nl1whXpgfyB5LeuTGgHUvwcvbOkbAW1/Oof+JoWfnwoDT92xGGLV8xQx4GFoblyeS\n55QkzPQrxZ/n1bz7LSIdZTQk9wKBgQDo0kQuZEyPNSotqbaAmarFZKl+r/a97Jmv\nIeFHKZDtP8vUqyyo0RIuuvGe/f6U8NMXqIQdoSUXMntMnin47Fprn0Uie49hBAEM\nv9dHCsn8+/0JzoAGO5u8YqwcxJ3UB26GgpgmcSgpWalL5wFpY5CJnuhKivga10fQ\n7kIuTGaczwKBgQCES6XY3LE8ZTs5zXRdKvvAgqb8xklgC5OP1iGX65hhG/77jB1Z\nBq7QmMijswTVEsT2IQZBU9KnivbTZxclEby7EbziHyncmYmXyPDWyg+XjULrvNQn\nCGQA1o45tieyVQAtNxYQCO7yxDiCQmrIKunYXUH6ta/zNvSq6J5zQU6QLwKBgQC3\nQ4PdzJ+i/mNUDEoXEl6lAGaWzWX4+/vBKncMsABfcB8/KPp/bArW89prn1082hAf\niEtuk0EB8H+zwLAjO9C09GrUCNTEtgUphvyq9Cgo1iXJCV4nCda9xCHchzwBAVST\n1spzQBEv817a21x2G6RTX91Th+5iGmFyaYl4rjT7awKBgHvKNizncwO6oY5/RK/g\n5oUWbBjByMEI3XWqNC69iTU9frw1BEN3HY5tKBuOH3SlN7AaDaTktOONtXZO0qtz\nCGmT1UB/FS2mtXi7z7MJFwHXm0lfqerJroRyKtXhVWxrVrJK35vLRhh+4PM3ekYN\njjY9fjbNBToc7H0+GNWALmvs\n-----END PRIVATE KEY-----\n",
+  "client_email": "projectbarangay@barangaydrive.iam.gserviceaccount.com",
+  "client_id": "111746904317699542289",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/projectbarangay%40barangaydrive.iam.gserviceaccount.com"
+}

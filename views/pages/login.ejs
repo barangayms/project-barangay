@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <% include ../partials/header1.ejs %>
+</head>
+
+<!-- style="background-image: url('bg.jpg');" -->
+  <body >
+    <div class="materialContainer">
+
+
+        <div class="box">
+     
+           <div class="title">LOGIN</div>
+     
+           <div class="input">
+              <label for="name">Username</label>
+              <input type="text" name="name" id="name">
+              <span class="spin"></span>
+           </div>
+     
+           <div class="input">
+              <label for="pass">Password</label>
+              <input type="password" name="pass" id="pass">
+              <span class="spin"></span>
+           </div>
+     
+           <div class="button login">
+              <button onclick="loadUsers()"><span>GO</span><i class="fa fa-check"></i></button>
+           </div>
+     
+           <a href="" class="pass-forgot">Forgot your password?</a>
+     
+        </div>
+        </div>
+     </div> 
+  
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7aCvIwh3q4hs1LACtScpq-QhXCcZNQ64",
+    authDomain: "barangay-dalig.firebaseapp.com",
+    databaseURL: "https://barangay-dalig.firebaseio.com",
+    projectId: "barangay-dalig",
+    storageBucket: "barangay-dalig.appspot.com",
+    messagingSenderId: "1072131148594"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="/js/login.js"></script>
+
+</body>
+
+</html>

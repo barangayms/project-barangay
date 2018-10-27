@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <% include ../partials/header.ejs %>
+</head>
+
+<body class="fixed-nav sticky-footer" id="page-top">
+        <% include ../partials/nav.ejs %>
+
+  <div class="content-wrapper">
+  <div class="container-fluid">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Reporting_Person')" id="defaultOpen">Reporting Person</button>
+    <button class="tablinks" onclick="openCity(event, 'Narrative')">Narrative</button>
+  </div>    
+
+  <div id="Reporting_Person" class="tabcontent">
+    <div id="form-step-0" role="form" data-toggle="validator">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    Date Recorded:
+                </div>
+                <div class="col-md-3">
+                    <input type="date" id="Date_recorded">                    
+                </div>
+                <div class="col-md-2">
+                    Time Recorded:
+                </div>
+                <div class="col-md-2">
+                    <input type="time" id="Time_recorded">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Date of Incident:
+                </div>
+                <div class="col-md-3">
+                    <input type="date" id="Date_incident">                    
+                </div>
+                <div class="col-md-2">
+                    Time of Incident:
+                </div>
+                <div class="col-md-2">
+                    <input type="time" id="Time_incident">
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-8">
+                    <input class="enjoy-css" class="form-control" id="First_name" placeholder="First Name" size="20" required> 
+                    <input class="enjoy-css" class="form-control" id="Middle_name" placeholder="Middle Name" size="20" required>
+                    <input class="enjoy-css" class="form-control" id="Last_name" placeholder="Last Name" size="20" required>
+                </div>                
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Nickname:
+                </div>
+                <div class="col-md-2">
+                    <input class="enjoy-css" class="form-control" id="Nickname" required> 
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Citizenship:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="enjoy-css" id="Citizenship" size="20" required>
+                </div>  
+            </div>  
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Gender:
+                </div>
+                <div class="col-md-3">
+                    <select Name="Gender" id="Gender">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Civil Status:
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="Civil_status" name="cstatus" value="Single"> Single<br>
+                    <input type="radio" id="Civil_status" value="Married" name="cstatus"> Married
+                </div>
+                <div class="col-md-5">  
+                    Others:&nbsp;<input type="text" class="enjoy-css" id="Civil_status" size="12">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Date of Birth
+                </div>
+                <div class="col-md-6" style="color:black">
+                    <input type="date" id="Date_birth">                    
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                Contact No.
+                </div>
+                <div class="col-md-3">
+                Home:&nbsp;<input type="text" class="enjoy-css" id="Home" size="16">
+                </div>
+                <div class="col-md-3">
+                Mobile:&nbsp;<input type="text" class="enjoy-css" id="Mobile" size="15">
+                </div>     
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Place of Birth:
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="enjoy-css" id="Place_birth" size="62">
+                </div>      
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Address:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Address" size="62">
+                </div>   
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Highest Educational Attainment:
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="enjoy-css" id="HEA" size="20">
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    Occupation:
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="enjoy-css" id="Occupation" size="20">
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    ID Card Presented:
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="enjoy-css" id="Id_card" size="20">
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <br>
+      </div>
+    </div>
+  </div>
+
+  <div id="Narrative" class="tabcontent">
+      <div id="form-step-0" role="form" data-toggle="validator">
+          <div class="form-group">
+              <h3>Narrative of Incident</h3>
+              <hr>
+              <div class="row">
+                  <div class="col-md-2">
+                      Type of Incident:
+                  </div>
+                  <div class="col-md-2">
+                      <input type="text" class="enjoy-css" id="Type_incident" size="20" required>
+                  </div>   
+                  <div class="help-block with-errors"></div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-2">
+                      Place of Incident:
+                  </div>
+                  <div class="col-md-7">
+                      <input type="text" class="enjoy-css" id="Place_incident" size="63" required>
+                  </div>   
+                  <div class="help-block with-errors"></div>
+              </div>
+              <br>
+              <hr>
+              <br>
+              <div class="row">
+                  <div class="col-md-12">
+                    <center>
+                      <h6>Enter in detail the narrative of the incident or event:</h6>
+                      <textarea rows="10" cols="90" id="narr">
+                      </textarea>
+                    </center>
+                  </div> 
+                  <div class="help-block with-errors"></div>
+              </div>
+              <br>
+              <div class="row">
+                <button class="btn btn-primary" role="button" id="addNew" style="margin-left: 85%" onclick="getCounter()">Add Record</button>
+              </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="content-wrapper">
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="clearSession()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+  </div>
+  
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD7aCvIwh3q4hs1LACtScpq-QhXCcZNQ64",
+        authDomain: "barangay-dalig.firebaseapp.com",
+        databaseURL: "https://barangay-dalig.firebaseio.com",
+        projectId: "barangay-dalig",
+        storageBucket: "barangay-dalig.appspot.com",
+        messagingSenderId: "1072131148594"
+    };
+    firebase.initializeApp(config);
+    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/sweetalert2.min.js"></script>
+  <script src="/js/addRecord.js"></script>
+</body>
+
+</html>

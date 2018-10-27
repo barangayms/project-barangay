@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <% include ../partials/header.ejs %>
+    
+</head>
+
+<body class="fixed-nav sticky-footer" id="page-top">
+    <% include ../partials/nav.ejs %>
+  
+    <div class="content-wrapper">
+        <div class="container-fluid">
+      <!-- Example DataTables Card-->
+        <div class="card-header">
+          <i class="fa fa-group"></i> Residents</div>
+        <div class="card-body">
+            <a href="/addResident" class="btn btn-primary" role="button" id="addNew">Add Resident</a>
+            <div class="table-responsive">
+            <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Fullname</th>
+                  <th>Nickname</th>
+                  <th>Gender</th>
+                  <th>Birthday</th>
+                  <th>Contact No.</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Fullname</th>
+                  <th>Nickname</th>
+                  <th>Gender</th>
+                  <th>Birthday</th>
+                  <th>Contact No.</th>
+                  <th>Actions</th>                
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+
+    <div class="modal fade profile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>Profile</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="tab">
+                      <button class="tablinks" onclick="openCity(event, 'Personal')" id="defaultOpen">Personal</button>
+                      <button class="tablinks" onclick="openCity(event, 'Family')">Family</button>
+                      <button class="tablinks" onclick="openCity(event, 'Educational')">Educational</button>
+                      <button class="tablinks" onclick="openCity(event, 'Others')">Others</button>
+                      <button role="button" style="float: right" id="edit_resident"><i class="fa fa-fw fa-edit"></i></button>
+                      <button role="button" style="float: right" id="save_resident"><i class="fa fa-fw fa-check"></i></button>                      
+                    </div>
+                    
+                    <div id="Personal" class="tabcontent">
+                        <br>
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      Name: <strong id="Name"></strong>
+                                      <input class="enjoy-css" class="form-control" id="Edit_first_name" size="20"> 
+                                      <input class="enjoy-css" class="form-control" id="Edit_middle_name" size="20">
+                                      <input class="enjoy-css" class="form-control" id="Edit_last_name" size="20">
+                
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Nickname: <strong id="Nickname"></strong>
+                                      <input class="enjoy-css" class="form-control" id="Edit_nickname" required> 
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      Household No.: <strong id="House"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_house_No" placeholder="1" size="2">                                      
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      Purok No.: <strong id="Purok"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_purok_No" placeholder="1" size="2">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      Barangay: <strong id="Barangay"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_barangay" placeholder="Dalig">                                        
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Status: <strong id="Status"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_status" placeholder="Owner">                          
+                                  </div>
+                              </div>
+                              <br>                              
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Length of Stay: <strong id="Length"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_length_stay" size="20">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      Complete Address: <strong id="PAddress"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_complete_address" placeholder="Batangas City" size="62">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Provincial Address: <strong id="PrAddress"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_provincial_address" placeholder="Batangas City" size="62">                                      
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Position in the Family: <strong id="Position"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_position_fam" size="20">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Gender: <strong id="Gender"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_gender" size="20">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Civil Status: <strong id="Civil_status"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_civil_status" size="28" ng-model="personal.Civil_status">
+                                  </div>
+                              </div>
+                              <br>        
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Citizenship: <strong id="Citizenship"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_citizenship" placeholder="Filipino" size="26">
+                                  </div>
+                              </div>  
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Date of Birth: <strong id="Date_birth"></strong>
+                                      <input type="date" id="Edit_date_birth">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Place of Birth: <strong id="Place_birth"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_place_birth" placeholder="Batangas City" size="62">
+                                  </div>    
+                              </div>
+                              <br>   
+                              <div class="row">
+                                  <div class="col-md-12">
+                                  Height: <strong id="Height"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_height" placeholder="152" size="15">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">                              
+                                  <div class="col-md-12">
+                                  Weight: <strong id="Weight"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_weight" placeholder="42" size="15">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                  Contact No.
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                  Home: <strong id="Home"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_home" size="16">
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                  Office: <strong id="Office"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_office" size="16">
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                  Mobile: <strong id="Mobile"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_mobile" size="16">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Email Address (if any): <strong id="Email"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_email" placeholder="email@gmail.com" size="40">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Voter: <strong id="Voter_status"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_voter_status" size="10">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">                              
+                                  <div class="col-md-12">
+                                      Voter's ID: <strong id="Voter_id"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_voter_id" size="25">
+                                  </div>
+                              </div>
+                              <br>    
+                          </div> 
+                    </div>
+
+                    <div id="Family" class="tabcontent">
+                      <br>
+                        <div class="form-group">
+                            <table id="childrenTable" class="table order-list" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <td><h5>Name</h5></td>
+                                        <td><h5>Position </h5><h7>in the family</h7></td>
+                                        <td><h5>Birthdate</h5></td>
+                                        <td><h5>Civil Status</h5></td>
+                                        <td><h5>Occupation</h5></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong id="Family_name1"></strong><input type="text" id="Edit_family_name1" class="form-control"/></td>
+                                        <td><strong id="Position1"></strong><input type="text" id="Edit_position1" class="form-control"/></td>
+                                        <td><strong id="Birthday1"></strong><input type="date" id="Edit_birthday1" class="form-control"/></td>
+                                        <td><strong id="Civil_status1"></strong><input type="text" id="Edit_civil_status1" class="form-control"/></td>
+                                        <td><strong id="Occupation1"></strong><input type="text" id="Edit_occupation1" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong id="Family_name2"></strong><input type="text" id="Edit_family_name2" class="form-control"/></td>
+                                        <td><strong id="Position2"></strong><input type="text" id="Edit_position2" class="form-control"/></td>
+                                        <td><strong id="Birthday2"></strong><input type="date" id="Edit_birthday2" class="form-control"/></td>
+                                        <td><strong id="Civil_status2"></strong><input type="text" id="Edit_civil_status2" class="form-control"/></td>
+                                        <td><strong id="Occupation2"></strong><input type="text" id="Edit_occupation2" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong id="Family_name3"></strong><input type="text" id="Edit_family_name3" class="form-control"/></td>
+                                        <td><strong id="Position3"></strong><input type="text" id="Edit_position3" class="form-control"/></td>
+                                        <td><strong id="Birthday3"></strong><input type="date" id="Edit_birthday3" class="form-control"/></td>
+                                        <td><strong id="Civil_status3"></strong><input type="text" id="Edit_civil_status3" class="form-control"/></td>
+                                        <td><strong id="Occupation3"></strong><input type="text" id="Edit_occupation3" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong id="Family_name4"></strong><input type="text" id="Edit_family_name4" class="form-control"/></td>
+                                        <td><strong id="Position4"></strong><input type="text" id="Edit_position4" class="form-control"/></td>
+                                        <td><strong id="Birthday4"></strong><input type="date" id="Edit_birthday4" class="form-control"/></td>
+                                        <td><strong id="Civil_status4"></strong><input type="text" id="Edit_civil_status4" class="form-control"/></td>
+                                        <td><strong id="Occupation4"></strong><input type="text" id="Edit_occupation4" class="form-control"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong id="Family_name5"></strong><input type="text" id="Edit_family_name5" class="form-control"/></td>
+                                        <td><strong id="Position5"></strong><input type="text" id="Edit_position5" class="form-control"/></td>
+                                        <td><strong id="Birthday5"></strong><input type="date" id="Edit_birthday5" class="form-control"/></td>
+                                        <td><strong id="Civil_status5"></strong><input type="text" id="Edit_civil_status5" class="form-control"/></td>
+                                        <td><strong id="Occupation5"></strong><input type="text" id="Edit_occupation5" class="form-control"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>  
+                        </div>
+                    </div>
+
+                    <div id="Educational" class="tabcontent">
+                        <br>
+                        <div class="form-group">
+                            <table id="childrenTable" class="table order-list" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <td><h5>Level of Education</h5></td>
+                                        <td><h5>School</h5></td>
+                                        <td><h5>Address</h5></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Elementary:</td>
+                                        <td><strong id="School_elem"></strong><input class="enjoy-css" class="form-control" id="Edit_school_elem" size="30" required></td>
+                                        <td><strong id="School_elem_add"></strong><input class="enjoy-css" class="form-control" id="Edit_school_elem_add" size="30" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>High School:</td>
+                                        <td><strong id="School_high"></strong><input class="enjoy-css" class="form-control" id="Edit_school_high" size="30" required></td>
+                                        <td><strong id="School_high_add"></strong><input class="enjoy-css" class="form-control" id="Edit_school_high_add" size="30" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>College:</td>
+                                        <td><strong id="School_col"></strong><input class="enjoy-css" class="form-control" id="Edit_school_col" size="30" required></td>
+                                        <td><strong id="School_col_add"></strong><input class="enjoy-css" class="form-control" id="Edit_school_col_add" size="30" required></td>
+                                    </tr>
+                                </tbody>
+                            </table>  
+                        </div>
+                    </div>
+
+                    <div id="Others" class="tabcontent">
+                        <br>
+                          <div class="form-group">
+                              <h4>Work</h4><hr>                          
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Occupation: <strong id="Occupation"></strong><input type="text" class="enjoy-css" id="Edit_occupation" size="40">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Name of Company: <strong id="Company_name"></strong><input type="text" class="enjoy-css" id="Edit_company_name" size="62">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Office Address: <strong id="Office_address"></strong><input type="text" class="enjoy-css" id="Edit_office_address" size="62">
+                                  </div>
+                              </div>
+                              <br>
+                              <br>
+                              <h4>Vehicle</h4><hr>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Kind: <strong id="Kind"></strong>
+                                      <input type="text" class="enjoy-css" id="Edit_kind" size="40">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Model: <strong id="Model"></strong><input type="text" class="enjoy-css" id="Edit_model" size="30">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Color: <strong id="Color"></strong><input type="text" class="enjoy-css" id="Edit_color" size="30">
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      Plate Number: <strong id="Plate_number"></strong><input type="text" class="enjoy-css" id="Edit_plate_num" size="30">
+                                  </div>
+                              </div>                          
+                        </div> 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+    </div>
+        
+
+    <div class="modal fade certs" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4>Certifications</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            Type:&nbsp;
+            <select id="selectMe">
+                <option value="option0" selected disabled hidden>Choose here</option>
+                <option value="option1">Barangay Clearance</option>
+                <option value="option2">Business</option>
+                <option value="option3">Certificate of Indigency</option>
+                <option value="option4">Certificate of Unemployment</option>
+                <option value="option5">Scholarship</option>
+                <option value="option6">Single Parent</option>
+            </select>
+            <br>
+            <br>
+            <div id="option0" class="group"></div>
+            <div id="option1" class="group">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Bc_name" size="20">
+                </div> 
+                <br>
+                <div class="col-md-3">
+                    Barangay:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Bc_barangay" size="20">
+                </div> 
+                <br>
+                <div class="col-md-2">
+                    Purpose:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Bc_purpose" placeholder="employment" size="20">
+                </div> 
+            </div>
+
+            <div id="option2" class="group">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Bu_name" size="20">
+                </div>
+                <br> 
+                <div class="col-md-2">
+                    Business:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Bu_business" size="20">
+                </div> 
+                <br>
+                <div class="col-md-3">
+                    Purok No.:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="enjoy-css" id="Bu_purok_no" size="20">
+                </div>
+                <br> 
+                <div class="col-md-3">
+                    Barangay:
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="enjoy-css" id="Bu_barangay" size="20">
+                </div>
+                <br> 
+                <div class="col-md-2">
+                    Lot:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Bu_lot" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br> 
+                <div class="col-md-5">
+                    Tax Declaration No.:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Bu_tdno" size="20" required ng-model="personal.First_name">
+                </div> 
+            </div>
+            
+            <div id="option3" class="group">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="In_name" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br>
+                <div class="col-md-3">
+                        Barangay:
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="enjoy-css" id="In_barangay" size="20">
+                    </div>
+                <br>
+            </div>
+
+            <div id="option4" class="group">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Un_name" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br> 
+                <div class="col-md-2">
+                    Age:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Un_age" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br> 
+                <div class="col-md-3">
+                    Purok No.:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="enjoy-css" id="Un_purok_no" size="20">
+                </div>
+                <br> 
+                <div class="col-md-3">
+                        Barangay:
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="enjoy-css" id="Un_barangay" size="20">
+                    </div>
+                <br>
+            </div>
+            
+            <div id="option5" class="group">
+                <div class="col-md-3">
+                    Name:
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="enjoy-css" id="Sc_name" size="20">
+                    </div>
+                <br>
+                <div class="col-md-4">
+                    Relationship to the<br>Barangay Kagawad:
+                </div>
+                    <div class="col-md-7">
+                        <select id="Sc_relationship">
+                            <option value="" selected disabled hidden>Choose here</option>                                    
+                            <option value="Son/Daughter">Son/Daughter</option>
+                            <option value="Grandson/Granddaughter">Grandson/Granddaughter</option>
+                        </select>
+                    </div>
+                <br>
+                <hr>
+                <br>
+                <div class="col-md-2">
+                    <h3>Barangay Kagawad</h3>
+                </div>
+                <br>
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Sc_namebk" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br> 
+                <div class="col-md-2">
+                    Age:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Sc_agebk" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br> 
+                <div class="col-md-3">
+                    Purok No.:
+                </div>
+                    <div class="col-md-2">
+                        <input type="text" class="enjoy-css" id="Sc_purokbk" size="20">
+                    </div>
+                <br> 
+                <div class="col-md-3">
+                    Barangay:
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="enjoy-css" id="Sc_barangaybk" size="20">
+                    </div>
+                <br>
+                <div class="col-md-4">
+                    Date Started as<br>Barangay Kagawad:
+                </div>
+                <div class="col-md-7">
+                    <input type="date" class="enjoy-css" id="Sc_date_started" size="20">
+                </div>
+            </div>
+            
+            <div id="option6" class="group">
+                <div class="col-md-2">
+                    Name:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Sp_name" size="20" required ng-model="personal.First_name">
+                </div> 
+                <br> 
+                <div class="col-md-3">
+                        Purok No.:
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="enjoy-css" id="Sp_purok_no" size="20">
+                    </div>
+                <br> 
+                <div class="col-md-3">
+                        Barangay:
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="enjoy-css" id="Sp_barangay" size="20">
+                    </div>
+                <br> 
+                <div class="col-md-2">
+                    Since:
+                </div>
+                <div class="col-md-7">
+                    <input class="enjoy-css" class="form-control" id="Sp_year" size="20" required ng-model="personal.First_name">
+                </div> 
+            </div>
+        </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="modal_okay_print">OK</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+        
+
+  <div class="content-wrapper">
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="clearSession()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    
+  </div>
+
+  
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7aCvIwh3q4hs1LACtScpq-QhXCcZNQ64",
+    authDomain: "barangay-dalig.firebaseapp.com",
+    databaseURL: "https://barangay-dalig.firebaseio.com",
+    projectId: "barangay-dalig",
+    storageBucket: "barangay-dalig.appspot.com",
+    messagingSenderId: "1072131148594"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script src="/js/sweetalert2.min.js"></script>
+  <script src="/js/jszip.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+  <script src="/js/jszip.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+  
+  <script src="/js/residents.js"></script>
+</body>
+
+</html>

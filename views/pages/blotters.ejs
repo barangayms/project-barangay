@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <% include ../partials/header.ejs %>
+</head>
+
+<body class="fixed-nav sticky-footer" id="page-top">
+    <% include ../partials/nav.ejs %>
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Example DataTables Card-->
+        <div class="card-header">
+          <i class="fa fa-gavel"></i> Blotter</div>
+          <div class="card-body">
+          <a href="/addBlotter" class="btn btn-primary" role="button" id="addNew">Add Record</a>          
+            <div class="table-responsive">
+            <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Type of Incident</th>
+                  <th>Reporting Person</th>
+                  <th>Date Reported</th>
+                  <th>Time Reported</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Type of Incident</th>
+                  <th>Reporting Person</th>
+                  <th>Date Reported</th>
+                  <th>Time Reported</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </tfoot>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+  </div>
+
+  <div class="modal fade profile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Profile</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+
+                  <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'Reporting_Person')" id="defaultOpen">Reporting Person</button>
+                    <button class="tablinks" onclick="openCity(event, 'Narrativetab')">Narrative</button>
+                    <button role="button" style="float: right" id="edit_blotter"><i class="fa fa-fw fa-edit"></i></button>
+                      <button role="button" style="float: right" id="save_blotter"><i class="fa fa-fw fa-check"></i></button> 
+                  </div>
+                  
+                  <div id="Reporting_Person" class="tabcontent">
+                      <br>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Date Recorded: <strong id="Date_recorded"></strong>
+                                    <input type="date" id="Edit_date_recorded">
+                                </div>
+                                <div class="col-md-6">
+                                    Time Recorded: <strong id="Time_recorded"></strong>
+                                    <input type="time" id="Edit_time_recorded">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Date of Incident: <strong id="Date_incident"></strong>
+                                    <input type="date" id="Edit_date_incident">
+                                </div>
+                                <div class="col-md-6">
+                                    Time of Incident: <strong id="Time_incident"></strong>
+                                    <input type="time" id="Edit_time_incident">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Name: <strong id="Name"></strong>
+                                    <input class="enjoy-css" class="form-control" id="Edit_first_name" placeholder="First Name" size="20" required> 
+                                    <input class="enjoy-css" class="form-control" id="Edit_middle_name" placeholder="Middle Name" size="20" required>
+                                    <input class="enjoy-css" class="form-control" id="Edit_last_name" placeholder="Last Name" size="20" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Nickname: <strong id="Nickname"></strong>
+                                    <input class="enjoy-css" class="form-control" id="Edit_nickname" required> 
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Citizenship: <strong id="Citizenship"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_citizenship" size="20" required>
+                                </div>  
+                            </div>  
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Gender: <strong id="Gender"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_gender" size="20" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Civil Status: <strong id="Civil_status"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_civil_status" size="12" ng-model="blotter.Civil_status">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Date of Birth: <strong id="Date_birth"></strong>
+                                    <input type="date" id="Edit_date_birth">                    
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                Contact No.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                Home: <strong id="Home"></strong>
+                                <input type="text" class="enjoy-css" id="Edit_home" size="16">
+                                </div>
+                            </div>                          
+                            <div class="row">
+                                <div class="col-md-12">
+                                Mobile: <strong id="Mobile"></strong>
+                                <input type="text" class="enjoy-css" id="Edit_mobile" size="16">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Place of Birth: <strong id="Place_birth"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_place_birth" size="62">
+                                </div>     
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Address: <strong id="Address"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_address" size="62">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Highest Educational Attainment: <strong id="HEA"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_HEA" size="20">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Occupation: <strong id="Occupation"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_occupation" size="20">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    ID Card Presented: <strong id="Id_card"></strong>
+                                    <input type="text" class="enjoy-css" id="Edit_id_card" size="20">
+                                </div>
+                            </div>
+                            <br>    
+                        </div> 
+                  </div>
+
+                  <div id="Narrativetab" class="tabcontent">
+                    <br>
+                      <div class="form-group">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  Type of Incident: <strong id="Type_incident"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_type_incident" size="20" required>
+                              </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                              <div class="col-md-12">
+                                  Place of Incident: <strong id="Place_incident"></strong>
+                                  <input type="text" class="enjoy-css" id="Edit_place_incident" size="63" required>
+                              </div>
+                          </div>
+                          <br>
+                          <hr>
+                          <br>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <center>
+                                  <h6>Narrative: <br>
+                                    <strong id="Narrative"></strong>
+                                    <textarea rows="10" cols="80" id="Edit_narr"></textarea>
+                                  </h6>
+                                </center>
+                              </div>
+                          </div>  
+                      </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  <div class="content-wrapper">
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="clearSession()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    
+    <script src="/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="/js/sb-admin-datatables.min.js"></script>
+  </div>
+  
+<script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7aCvIwh3q4hs1LACtScpq-QhXCcZNQ64",
+    authDomain: "barangay-dalig.firebaseapp.com",
+    databaseURL: "https://barangay-dalig.firebaseio.com",
+    projectId: "barangay-dalig",
+    storageBucket: "barangay-dalig.appspot.com",
+    messagingSenderId: "1072131148594"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script src="/js/sweetalert2.min.js"></script>
+  <script src="/js/blotters.js"></script>
+</body>
+</html>
