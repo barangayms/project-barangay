@@ -569,6 +569,18 @@ function changeValue(id) {
 
         btn.addEventListener('click', function(event){
             var purpose = document.getElementById("Bc_purpose").value
+            var chairman = document.getElementById("Bc_chairman").value
+            var councilor1 = document.getElementById("Bc_councilor1").value
+            var councilor2 = document.getElementById("Bc_councilor2").value
+            var councilor3 = document.getElementById("Bc_councilor3").value
+            var councilor4 = document.getElementById("Bc_councilor4").value
+            var councilor5 = document.getElementById("Bc_councilor5").value
+            var councilor6 = document.getElementById("Bc_councilor6").value
+            var councilor7 = document.getElementById("Bc_councilor7").value
+            var treasurer = document.getElementById("Bc_treasurer").value
+            var secretary = document.getElementById("Bc_secretary").value
+            var certno = document.getElementById("Bc_certno").value
+            var ctrlno = document.getElementById("Bc_ctrlno").value
             var pdf = new jsPDF();
             var img = new Image;
             img.onload = function() {
@@ -583,15 +595,25 @@ function changeValue(id) {
                 pdf.text(127, 161, returnDate(day));
                 pdf.text(156, 161, returnMonth(month) + " " + year.toString());
                 pdf.text(108, 167, barangay);
-                pdf.text(150, 201, 'Kizz Adle Robledo');
-                pdf.text(58, 224, '000001');
-                pdf.text(58, 229.5, returnDate(day) + " " + returnMonth(month) + " " +  + year.toString());    
-                pdf.text(56, 249.5, '00001');
+                pdf.text(57, 224, certno);
+                pdf.text(57, 229.5, returnDate(day) + " of " + returnMonth(month) + " " +  + year.toString());    
+                pdf.text(56, 249.5, ctrlno);
+
+                pdf.text(28, 86.5, chairman);
+                pdf.text(28, 108.5, councilor1);
+                pdf.text(28, 115, councilor2);
+                pdf.text(28, 121.5, councilor3);
+                pdf.text(28, 127.5, councilor4);
+                pdf.text(28, 133.5, councilor5);
+                pdf.text(28, 140, councilor6);
+                pdf.text(28, 146, councilor7);
+                pdf.text(28, 158, treasurer);
+                pdf.text(28, 173.5, secretary);
                 pdf.save("Barangay_Clearance_"+ snapshot.child("Last_name").val() +"_"+  snapshot.child("First_name").val() +".pdf");
             };
             
             img.crossOrigin = "";  // for demo as we are at different origin than image
-            img.src = "/images/cert_1.jpg";  
+            img.src = "cert_1.jpg";  
             
         });
       } else if(document.getElementById("selectMe").value == "option2") {
@@ -633,14 +655,13 @@ function changeValue(id) {
                 pdf.text(138, 125, tdno.toString());                
                 pdf.text(66, 160, returnDate(day));
                 pdf.text(105, 160, returnMonth(month) + " " + year.toString());
-                pdf.text(47, 168.5, snapshot.child("Last_name").val());
-                pdf.text(135, 199.5, 'Kizz Adle Robledo');                
-                pdf.text(135, 235, 'Barangay');                
+                pdf.text(47, 168.5, snapshot.child("Last_name").val());               
+                pdf.text(135, 235, 'Barangay' + barangay);                
                 pdf.save("Business_Clearance_"+ snapshot.child("Last_name").val() +"_"+  snapshot.child("First_name").val() +".pdf");
             };
             
             img.crossOrigin = "";  // for demo as we are at different origin than image
-            img.src = "/images/cert_2.jpg";  // some random imgur image
+            img.src = "cert_2.jpg";  // some random imgur image
             
             
         });
@@ -676,12 +697,11 @@ function changeValue(id) {
                 pdf.text(92, 142, sname);
                 pdf.text(62, 185.5, returnDate(day));
                 pdf.text(92, 185.5, returnMonth(month) + " " + year.toString());
-                pdf.text(132, 229.5, 'Chairman');
                 pdf.save("Indigency_"+ snapshot.child("Last_name").val() +"_"+  snapshot.child("First_name").val() +".pdf");
             };
             
             img.crossOrigin = "";  // for demo as we are at different origin than image
-            img.src = "/images/cert_3.jpg";  // some random imgur image
+            img.src = "cert_3.jpg";  // some random imgur image
             
             
         });
@@ -724,16 +744,15 @@ function changeValue(id) {
                 pdf.text(44, 189, snapshot.child("Last_name").val());
                 pdf.text(62, 210.5, returnDate(day));
                 pdf.text(92, 210.5, returnMonth(month) + " " + year.toString());
-                pdf.text(132, 244, 'Chairman');
                 pdf.save("Unemployment_"+ snapshot.child("Last_name").val() +"_"+  snapshot.child("First_name").val() +".pdf");
             };
             
             img.crossOrigin = "";  // for demo as we are at different origin than image
-            img.src = "/images/cert_4.jpg";  // some random imgur image
+            img.src = "cert_4.jpg";  // some random imgur image
             
             
         });
-    } else if(document.getElementById("selectMe").value == "option5") {
+      } else if(document.getElementById("selectMe").value == "option5") {
         var name = snapshot.child("First_name").val() + " " + snapshot.child("Middle_name").val() + " " +snapshot.child("Last_name").val();
         var barangay = snapshot.child("Barangay").val();
         var purok = snapshot.child("Purok_No").val();
@@ -777,12 +796,11 @@ function changeValue(id) {
                 pdf.text(128, 182, sname);                
                 pdf.text(62, 204, returnDate(day));
                 pdf.text(92, 204, returnMonth(month) + " " + year.toString());
-                pdf.text(132, 238.5, 'Chairman');
                 pdf.save("Scholarship_"+ snapshot.child("Last_name").val() +"_"+  snapshot.child("First_name").val() +".pdf");
             };
             
             img.crossOrigin = "";  // for demo as we are at different origin than image
-            img.src = "/images/cert_5.jpg";  // some random imgur image
+            img.src = "cert_5.jpg";  // some random imgur image
             
             
         });  
@@ -821,12 +839,11 @@ function changeValue(id) {
                 pdf.text(148, 179, snapshot.child("Last_name").val());
                 pdf.text(62, 200.5, returnDate(day));
                 pdf.text(92, 200.5, returnMonth(month) + " " + year.toString());
-                pdf.text(132, 245, 'Chairman');
                 pdf.save("Single_Parent_"+snapshot.child("Last_name").val()+"_"+snapshot.child("First_name").val()+".pdf");
             };
             
             img.crossOrigin = "";  // for demo as we are at different origin than image
-            img.src = "/images/cert_6.jpg";  // some random imgur image
+            img.src = "cert_6.jpg";  // some random imgur image
             
             
         });
