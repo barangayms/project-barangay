@@ -3045,20 +3045,6 @@ function clearSession() {
   window.location.replace("login");
 }
 
-function addReport() {
-  var filename = document.getElementById("filename").value;
-  var str = filename.substr(12, filename.length);
-  $('#render').hide();
-  renderSaveToDrive(str);
-}
-
-function renderSaveToDrive(filename) {
-  gapi.savetodrive.render('savetodrive-div', {
-    src: '/files/secretary/'+filename,
-    filename: filename,
-    sitename: 'ABC System'
-  });
-}
 
 
 
